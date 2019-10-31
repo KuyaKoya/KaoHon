@@ -22,10 +22,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="r8p-OI-BgM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OgO-mq-6Q2"/>
-                <constraint firstItem="r8p-OI-BgM" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="kre-nH-mld"/>
-                <constraint firstItem="r8p-OI-BgM" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="oxv-JG-xoU"/>
-                <constraint firstItem="r8p-OI-BgM" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="wLU-Ac-jKz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="r8p-OI-BgM" secondAttribute="bottom" id="B4u-YU-SGE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="r8p-OI-BgM" secondAttribute="top" constant="20" id="CzA-iE-aq0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="r8p-OI-BgM" secondAttribute="trailing" id="Ggs-qk-gDZ"/>
+                <constraint firstItem="r8p-OI-BgM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wwn-28-v69"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

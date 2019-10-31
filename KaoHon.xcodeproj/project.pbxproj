@@ -24,6 +24,7 @@
 		C9A76CB32369794C002B6C6D /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A76CB22369794C002B6C6D /* PhotosViewController.swift */; };
 		C9C07C75236A8AAC00EFAD0F /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C07C74236A8AAC00EFAD0F /* Slide.swift */; };
 		C9C07C77236A8AE000EFAD0F /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C07C76236A8AE000EFAD0F /* Slide.xib */; };
+		C9EE82C3236AC8F600B63578 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE82C2236AC8F600B63578 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C9A76CB22369794C002B6C6D /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		C9C07C74236A8AAC00EFAD0F /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		C9C07C76236A8AE000EFAD0F /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		C9EE82C2236AC8F600B63578 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				C9774C102366E10800DF0795 /* PostViewController.swift */,
 				C9A76CAC23694764002B6C6D /* AlbumCollectionViewController.swift */,
 				C9A76CB22369794C002B6C6D /* PhotosViewController.swift */,
+				C9EE82C2236AC8F600B63578 /* MapViewController.swift */,
 				C9774C0A2366E05D00DF0795 /* MainTableViewCell.swift */,
 				C9774C0C2366E07900DF0795 /* PostTableViewCell.swift */,
 				C9A76CB023695192002B6C6D /* CollectionViewCell.swift */,
@@ -225,6 +228,7 @@
 				C9C07C75236A8AAC00EFAD0F /* Slide.swift in Sources */,
 				C9774BF42366DB1000DF0795 /* KaoHon.xcdatamodeld in Sources */,
 				C9774C112366E10800DF0795 /* PostViewController.swift in Sources */,
+				C9EE82C3236AC8F600B63578 /* MapViewController.swift in Sources */,
 				C9774C0D2366E07900DF0795 /* PostTableViewCell.swift in Sources */,
 				C9774C0B2366E05D00DF0795 /* MainTableViewCell.swift in Sources */,
 				C9774C132366E14E00DF0795 /* ProfileViewController.swift in Sources */,
