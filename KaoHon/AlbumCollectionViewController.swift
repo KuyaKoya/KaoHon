@@ -8,20 +8,75 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class AlbumCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var albumData: NSObject? //from userdata
+    var userAlbum: NSMutableArray = NSMutableArray() //all albums
+    var userPhotos: NSMutableArray = NSMutableArray() //all photos of users
+    var userThumbnails: NSMutableArray = NSMutableArray() //1st thumbnail of each album
+    var albumArray: NSMutableArray = NSMutableArray() //temp array
+    var id: NSMutableArray = NSMutableArray()
+    var albumPhotos = [String: NSMutableArray]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "album")
 
         // Do any additional setup after loading the view.
+    
+        let session = URLSession.shared
+        
+        //get album task
+        let albumUrl = URL(string: "https://jsonplaceholder.typicode.com/albums")!
+        
+        let getAlbumTask = session.dataTask(with: albumUrl, completionHandler: { data, response, error in
+            
+            do {
+                if let json:NSArray = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
+                    for album in json{
+                        if let object = album as? AnyObject, let ID = object.value(forKey: "userId") as? Int, ID == self.albumData?.value(forKey: "id") as? Int{
+                            self.id.add(object.value(forKey: "id") as? Int as Any)
+                            self.userAlbum.add(album)
+                        }
+                    }
+                }
+                
+                let photosURL = URL(string: "https://jsonplaceholder.typicode.com/photos")!
+                let getPhotoTask = session.dataTask(with: photosURL, completionHandler: { data, response, error in
+                    do {
+                        if let json:NSArray = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
+                            for photo in json{
+                                if let object = photo as? AnyObject{
+                                    if let albumid = object.value(forKey: "albumId") as? Int, self.id.contains(albumid){
+                                        if let album = self.albumPhotos["\(albumid)"]{
+                                            album.add(photo)
+                                        }else{
+                                            let tempArray = NSMutableArray(object: photo)
+                                            self.albumPhotos["\(albumid)"]  = tempArray
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                            self.activityIndicator.stopAnimating()
+                        }
+                        
+                    } catch {
+                        print("JSON error: \(error.localizedDescription)")
+                    }
+                })
+                getPhotoTask.resume()
+            } catch {
+                print("JSON error: \(error.localizedDescription)")
+            }
+        })
+        activityIndicator.startAnimating()
+        getAlbumTask.resume()
+        
     }
 
     /*
@@ -35,24 +90,46 @@ class AlbumCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        let count: Int = id.count
+        return count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
     
+        if let photoId = self.id.object(at: indexPath.row) as? Int, let first = self.albumPhotos["\(photoId)"]?.firstObject as? AnyObject, let url = URL(string: first.value(forKey: "url") as! String){
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    cell.albumCell.image = UIImage(data: data!)
+                }
+            }
+            cell.titleLbl.text = (userAlbum.object(at: indexPath.row) as AnyObject).value(forKey: "title") as? String
+        }
         // Configure the cell
-    
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = collectionView.indexPathsForSelectedItems{
+            if let identifier = segue.identifier, identifier == "photos"{
+                if let vc = segue.destination as? PhotosViewController{
+                    if let first = indexPath.first?.row{
+                        if let data = albumPhotos["\(first + 1)"]{
+                            vc.photosArray = data
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // MARK: UICollectionViewDelegate

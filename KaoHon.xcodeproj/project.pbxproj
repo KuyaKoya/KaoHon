@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20DBB419DD4AB889A851A512 /* Pods_KaoHon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5066CA9C44F3519F72FB1745 /* Pods_KaoHon.framework */; };
 		C9774BEC2366DB1000DF0795 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774BEB2366DB1000DF0795 /* AppDelegate.swift */; };
 		C9774BEE2366DB1000DF0795 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774BED2366DB1000DF0795 /* ViewController.swift */; };
 		C9774BF12366DB1000DF0795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9774BEF2366DB1000DF0795 /* Main.storyboard */; };
 		C9774BF42366DB1000DF0795 /* KaoHon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9774BF22366DB1000DF0795 /* KaoHon.xcdatamodeld */; };
 		C9774BF62366DB1100DF0795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9774BF52366DB1100DF0795 /* Assets.xcassets */; };
 		C9774BF92366DB1100DF0795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9774BF72366DB1100DF0795 /* LaunchScreen.storyboard */; };
+		C9774C012366DF4500DF0795 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774C002366DF4500DF0795 /* TabViewController.swift */; };
+		C9774C0B2366E05D00DF0795 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774C0A2366E05D00DF0795 /* MainTableViewCell.swift */; };
+		C9774C0D2366E07900DF0795 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774C0C2366E07900DF0795 /* PostTableViewCell.swift */; };
+		C9774C112366E10800DF0795 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774C102366E10800DF0795 /* PostViewController.swift */; };
+		C9774C132366E14E00DF0795 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9774C122366E14E00DF0795 /* ProfileViewController.swift */; };
+		C9A76CAD23694764002B6C6D /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A76CAC23694764002B6C6D /* AlbumCollectionViewController.swift */; };
+		C9A76CB123695192002B6C6D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A76CB023695192002B6C6D /* CollectionViewCell.swift */; };
+		C9A76CB32369794C002B6C6D /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A76CB22369794C002B6C6D /* PhotosViewController.swift */; };
+		C9C07C75236A8AAC00EFAD0F /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C07C74236A8AAC00EFAD0F /* Slide.swift */; };
+		C9C07C77236A8AE000EFAD0F /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C07C76236A8AE000EFAD0F /* Slide.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5066CA9C44F3519F72FB1745 /* Pods_KaoHon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaoHon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B2906FBEC2BAB2D5E7BFC5 /* Pods-KaoHon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaoHon.release.xcconfig"; path = "Target Support Files/Pods-KaoHon/Pods-KaoHon.release.xcconfig"; sourceTree = "<group>"; };
+		9F89D8721685738E3CB4027E /* Pods-KaoHon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaoHon.debug.xcconfig"; path = "Target Support Files/Pods-KaoHon/Pods-KaoHon.debug.xcconfig"; sourceTree = "<group>"; };
 		C9774BE82366DB1000DF0795 /* KaoHon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaoHon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9774BEB2366DB1000DF0795 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9774BED2366DB1000DF0795 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +38,16 @@
 		C9774BF52366DB1100DF0795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9774BF82366DB1100DF0795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9774BFA2366DB1100DF0795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9774C002366DF4500DF0795 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		C9774C0A2366E05D00DF0795 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C9774C0C2366E07900DF0795 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		C9774C102366E10800DF0795 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		C9774C122366E14E00DF0795 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C9A76CAC23694764002B6C6D /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
+		C9A76CB023695192002B6C6D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		C9A76CB22369794C002B6C6D /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		C9C07C74236A8AAC00EFAD0F /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		C9C07C76236A8AE000EFAD0F /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20DBB419DD4AB889A851A512 /* Pods_KaoHon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F2F0F9CB22136056A38DA51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F89D8721685738E3CB4027E /* Pods-KaoHon.debug.xcconfig */,
+				87B2906FBEC2BAB2D5E7BFC5 /* Pods-KaoHon.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8628E5DF831D890D3D0C6B3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5066CA9C44F3519F72FB1745 /* Pods_KaoHon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9774BDF2366DB1000DF0795 = {
 			isa = PBXGroup;
 			children = (
 				C9774BEA2366DB1000DF0795 /* KaoHon */,
 				C9774BE92366DB1000DF0795 /* Products */,
+				7F2F0F9CB22136056A38DA51 /* Pods */,
+				8628E5DF831D890D3D0C6B3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +102,16 @@
 			children = (
 				C9774BEB2366DB1000DF0795 /* AppDelegate.swift */,
 				C9774BED2366DB1000DF0795 /* ViewController.swift */,
+				C9774C002366DF4500DF0795 /* TabViewController.swift */,
+				C9774C122366E14E00DF0795 /* ProfileViewController.swift */,
+				C9774C102366E10800DF0795 /* PostViewController.swift */,
+				C9A76CAC23694764002B6C6D /* AlbumCollectionViewController.swift */,
+				C9A76CB22369794C002B6C6D /* PhotosViewController.swift */,
+				C9774C0A2366E05D00DF0795 /* MainTableViewCell.swift */,
+				C9774C0C2366E07900DF0795 /* PostTableViewCell.swift */,
+				C9A76CB023695192002B6C6D /* CollectionViewCell.swift */,
+				C9C07C74236A8AAC00EFAD0F /* Slide.swift */,
+				C9C07C76236A8AE000EFAD0F /* Slide.xib */,
 				C9774BEF2366DB1000DF0795 /* Main.storyboard */,
 				C9774BF52366DB1100DF0795 /* Assets.xcassets */,
 				C9774BF72366DB1100DF0795 /* LaunchScreen.storyboard */,
@@ -74,6 +128,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9774BFD2366DB1100DF0795 /* Build configuration list for PBXNativeTarget "KaoHon" */;
 			buildPhases = (
+				1397B080DA01F356DDD4CC9A /* [CP] Check Pods Manifest.lock */,
 				C9774BE42366DB1000DF0795 /* Sources */,
 				C9774BE52366DB1000DF0795 /* Frameworks */,
 				C9774BE62366DB1000DF0795 /* Resources */,
@@ -128,19 +183,54 @@
 				C9774BF92366DB1100DF0795 /* LaunchScreen.storyboard in Resources */,
 				C9774BF62366DB1100DF0795 /* Assets.xcassets in Resources */,
 				C9774BF12366DB1000DF0795 /* Main.storyboard in Resources */,
+				C9C07C77236A8AE000EFAD0F /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1397B080DA01F356DDD4CC9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KaoHon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9774BE42366DB1000DF0795 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A76CAD23694764002B6C6D /* AlbumCollectionViewController.swift in Sources */,
+				C9A76CB32369794C002B6C6D /* PhotosViewController.swift in Sources */,
+				C9774C012366DF4500DF0795 /* TabViewController.swift in Sources */,
+				C9C07C75236A8AAC00EFAD0F /* Slide.swift in Sources */,
 				C9774BF42366DB1000DF0795 /* KaoHon.xcdatamodeld in Sources */,
+				C9774C112366E10800DF0795 /* PostViewController.swift in Sources */,
+				C9774C0D2366E07900DF0795 /* PostTableViewCell.swift in Sources */,
+				C9774C0B2366E05D00DF0795 /* MainTableViewCell.swift in Sources */,
+				C9774C132366E14E00DF0795 /* ProfileViewController.swift in Sources */,
 				C9774BEE2366DB1000DF0795 /* ViewController.swift in Sources */,
 				C9774BEC2366DB1000DF0795 /* AppDelegate.swift in Sources */,
+				C9A76CB123695192002B6C6D /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +374,7 @@
 		};
 		C9774BFE2366DB1100DF0795 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F89D8721685738E3CB4027E /* Pods-KaoHon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +392,7 @@
 		};
 		C9774BFF2366DB1100DF0795 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87B2906FBEC2BAB2D5E7BFC5 /* Pods-KaoHon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
