@@ -16,7 +16,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDe
     var geoLng: Double?
     var locationManager = CLLocationManager()
 
-    @IBOutlet weak var fullMapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,44 +25,56 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDe
         checkLocationServices()//check for permissions
         fetchHome() //add annotation
         
-//        self.locationManager.requestAlwaysAuthorization()
-//
-//        // For use in foreground
-//        self.locationManager.requestWhenInUseAuthorization()
-//
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//            locationManager.startUpdatingLocation()
-//        }
-//
-//        fullMapView.delegate = self
-//        fullMapView.mapType = .standard
-//        fullMapView.isZoomEnabled = true
-//        fullMapView.isScrollEnabled = true
-//
-//        if let coor = fullMapView.userLocation.location?.coordinate{
-//            fullMapView.setCenter(coor, animated: true)
-//        }
+        // 1.
+        mapView.delegate = self
         
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 10.30, longitude: 123.881524), addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: geoLat!, longitude: geoLng!), addressDictionary: nil))
-        print(request.source as Any)
-        print(request.destination as Any)
-        request.requestsAlternateRoutes = true
-        request.transportType = .any
+        // 2.
+        let sourceLocation = CLLocationCoordinate2D(latitude: 10.30, longitude: 123.881524)
+        let destinationLocation = CLLocationCoordinate2D(latitude: geoLat!, longitude: geoLng!)
+        
+        // 3.
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        // 4.
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
 
-        let directions = MKDirections(request: request)
-
-        directions.calculate { [unowned self] response, error in
-            guard let unwrappedResponse = response else { return }
-
-            for route in unwrappedResponse.routes {
-                self.fullMapView.addOverlay(route.polyline)
-                self.fullMapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+        // 7.
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .any
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        // 8.
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
             }
+            
+            let route = response.routes[0]
+            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
+        
+        return renderer
     }
     
     func checkLocationServices() {
@@ -76,12 +88,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDe
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            fullMapView.showsUserLocation = true
+            mapView.showsUserLocation = true
         case .denied: // Show alert telling users how to turn on permissions
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-            fullMapView.showsUserLocation = true
+            mapView.showsUserLocation = true
         case .restricted: // Show an alert letting them know what’s up
             break
         case .authorizedAlways:
@@ -95,25 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDe
         annotations.coordinate = CLLocationCoordinate2D(latitude:
             geoLat!, longitude: geoLng!)
         print(annotations.coordinate)
-        fullMapView.addAnnotation(annotations)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        fullMapView.mapType = MKMapType.standard
-        
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: locValue, span: span)
-        fullMapView.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locValue
-        annotation.title = "My Location"
-        annotation.subtitle = "current location"
-        fullMapView.addAnnotation(annotation)
-        
-        //centerMap(locValue)
+        mapView.addAnnotation(annotations)
     }
     /*
     // MARK: - Navigation

@@ -411,7 +411,7 @@
                         <viewLayoutGuide key="safeArea" id="Tec-X4-VdQ"/>
                     </view>
                     <connections>
-                        <outlet property="fullMapView" destination="hbc-Bv-oGv" id="yf2-6V-bLm"/>
+                        <outlet property="mapView" destination="hbc-Bv-oGv" id="Bfp-5N-aXW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLj-CA-E3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
