@@ -106,19 +106,19 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="709"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AAn-Ap-Qoy">
-                                <rect key="frame" x="20" y="805" width="374" height="37"/>
+                                <rect key="frame" x="8" y="805" width="398" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AAn-Ap-Qoy" firstAttribute="top" secondItem="PpD-Pi-Z8y" secondAttribute="bottom" constant="8" id="10b-CU-bYS"/>
+                            <constraint firstItem="bi3-gK-Tw6" firstAttribute="bottom" secondItem="AAn-Ap-Qoy" secondAttribute="bottom" constant="20" id="8XL-HH-Cdr"/>
+                            <constraint firstItem="AAn-Ap-Qoy" firstAttribute="leading" secondItem="yP4-ga-AlV" secondAttribute="leadingMargin" constant="-12" id="8n7-E9-HJy"/>
+                            <constraint firstItem="AAn-Ap-Qoy" firstAttribute="trailing" secondItem="yP4-ga-AlV" secondAttribute="trailingMargin" constant="12" id="FVZ-mt-cqK"/>
                             <constraint firstItem="PpD-Pi-Z8y" firstAttribute="top" secondItem="bi3-gK-Tw6" secondAttribute="top" id="P8o-Dp-e0E"/>
                             <constraint firstAttribute="trailing" secondItem="PpD-Pi-Z8y" secondAttribute="trailing" id="QVd-AM-27z"/>
                             <constraint firstItem="PpD-Pi-Z8y" firstAttribute="leading" secondItem="yP4-ga-AlV" secondAttribute="leading" id="RZq-6p-pPq"/>
-                            <constraint firstItem="AAn-Ap-Qoy" firstAttribute="top" secondItem="PpD-Pi-Z8y" secondAttribute="bottom" constant="8" id="SDl-Va-jQ7"/>
-                            <constraint firstItem="AAn-Ap-Qoy" firstAttribute="leading" secondItem="bi3-gK-Tw6" secondAttribute="leading" constant="20" id="deB-nr-Gka"/>
-                            <constraint firstItem="bi3-gK-Tw6" firstAttribute="trailing" secondItem="AAn-Ap-Qoy" secondAttribute="trailing" constant="20" id="jif-a1-uH3"/>
-                            <constraint firstItem="bi3-gK-Tw6" firstAttribute="bottom" secondItem="AAn-Ap-Qoy" secondAttribute="bottom" constant="20" id="w5X-GI-YA5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bi3-gK-Tw6"/>
                     </view>
@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHq-vr-Vih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597.1014492753625" y="1152.4553571428571"/>
+            <point key="canvasLocation" x="2597.1014492753625" y="1152.717391304348"/>
         </scene>
         <!--Post-->
         <scene sceneID="lB3-IA-tSp">

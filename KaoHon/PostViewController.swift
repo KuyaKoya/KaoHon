@@ -95,12 +95,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if UITableViewCell.self == MainTableViewCell.self{
-            return 250
-        }
-        else{
-            return 100
-        }
+       return 250
         
     }
 
