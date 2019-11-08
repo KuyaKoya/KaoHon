@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var fullnameLbl: UILabel!
@@ -19,18 +19,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var addrSuiteLbl: UILabel!
     @IBOutlet weak var addrCityLbl: UILabel!
     @IBOutlet weak var addrZipCodeLbl: UILabel!
-    @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var websiteLbl: UILabel!
     @IBOutlet weak var CompanyNameLbl: UILabel!
     @IBOutlet weak var CatchphraseLbl: UILabel!
     @IBOutlet weak var bsLbl: UILabel!
     @IBOutlet weak var directionsBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var imagePickerButton: UIButton!
+    @IBOutlet weak var phoneTxt: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     let geoLat = 10.281923
     let geoLng = 123.881524
     var initialLocation: CLLocation?
     let regionRadius: CLLocationDistance = 1000
     let locationManager = CLLocationManager()
+    let imagePicker = UIImagePickerController()
     
     var profileData: NSObject?
     
@@ -45,6 +48,7 @@ class ProfileViewController: UIViewController {
 
         profileImgView.image = (UIImage (named: "spiderman"))
         profileImgView.layer.cornerRadius = 60
+        imagePickerButton.layer.cornerRadius = 13
         
 //        print("profile data \(profileData as Any)")
         if profileData != nil {
@@ -62,21 +66,44 @@ class ProfileViewController: UIViewController {
 //
 //            geoLatLbl.text = "Geo Lat: \(geoLat) as! String)"
 //            geoLngLbl.text = "Geo Lng: \(geoLng) as! String)"
-            
+        
             checkLocationServices()//check for permissions
             let home = [Home(name: "My Home", lattitude: geoLat, longtitude: geoLng)] //store lat, long and name to struct
             fetchHome(home) //add annotation
             
+            phoneTxt.text = "\(profileData?.value(forKey: "phone") as! String)"
+            phoneTxt.dataDetectorTypes = UIDataDetectorTypes.all;
             
-            phoneLbl.text = "Phone: \(profileData?.value(forKey: "phone") as! String)"
-            websiteLbl.text = "Website: \(profileData?.value(forKey: "website") as! String)"
+            websiteLbl.text = "\(profileData?.value(forKey: "website") as! String)"
             
             let company:NSObject? = (profileData?.value(forKey: "company") as! NSObject)
-            CompanyNameLbl.text = "Company Name: \(company?.value(forKey: "name") as! String)"
-            CatchphraseLbl.text = "Catchphrase: \(company?.value(forKey: "catchPhrase") as! String)"
-            bsLbl.text = "BS: \(company?.value(forKey: "bs") as! String)"
+            CompanyNameLbl.text = "\(company?.value(forKey: "name") as! String)"
+            CatchphraseLbl.text = "\(company?.value(forKey: "catchPhrase") as! String)"
+            bsLbl.text = "\(company?.value(forKey: "bs") as! String)"
         }
+        imagePicker.delegate = self
     }
+    
+    @IBAction func imagePicker(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImgView.contentMode = .scaleAspectFill
+            profileImgView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
@@ -129,14 +156,4 @@ class ProfileViewController: UIViewController {
                 }
             }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
