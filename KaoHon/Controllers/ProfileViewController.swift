@@ -82,6 +82,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             bsLbl.text = "\(company?.value(forKey: "bs") as! String)"
         }
         imagePicker.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(printtext))
+        self.profileImgView.addGestureRecognizer(tap)
+    }
+    
+    @objc func printtext() {
+        print("test")
     }
     
     @IBAction func imagePicker(_ sender: Any) {

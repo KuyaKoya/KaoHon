@@ -104,10 +104,10 @@
 		C9774BEA2366DB1000DF0795 /* KaoHon */ = {
 			isa = PBXGroup;
 			children = (
+				C9C40A90237571F2009466F3 /* Controllers */,
 				C9774BEB2366DB1000DF0795 /* AppDelegate.swift */,
 				C9774BED2366DB1000DF0795 /* ViewController.swift */,
 				C9774C002366DF4500DF0795 /* TabViewController.swift */,
-				C9774C122366E14E00DF0795 /* ProfileViewController.swift */,
 				C9774C102366E10800DF0795 /* PostViewController.swift */,
 				C9A76CAC23694764002B6C6D /* AlbumCollectionViewController.swift */,
 				C9A76CB22369794C002B6C6D /* PhotosViewController.swift */,
@@ -125,6 +125,14 @@
 				C9774BF22366DB1000DF0795 /* KaoHon.xcdatamodeld */,
 			);
 			path = KaoHon;
+			sourceTree = "<group>";
+		};
+		C9C40A90237571F2009466F3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9774C122366E14E00DF0795 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

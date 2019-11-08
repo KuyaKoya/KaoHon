@@ -39,7 +39,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.activityIndicator.startAnimating()
         task.resume()
         
+        
+        
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,19 +70,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = self.tableview.indexPathForSelectedRow{
-            if let identifier = segue.identifier, identifier == "profileSegue"{
-                if let vc = segue.destination as? TabViewController{
-                    if let data = self.userArray?.object(at: indexPath.row) as? NSObject{
-                        (vc.viewControllers?[0] as? ProfileViewController)?.profileData = data
-                        (vc.viewControllers?[1] as? PostViewController)?.postData = data
-                        (vc.viewControllers?[2] as? AlbumCollectionViewController)?.albumData = data
-                    }
-                }
-            }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "profileview") as! TabViewController
+        
+        if let data = self.userArray?.object(at: indexPath.row) as? NSObject{
+            (vc.viewControllers?[0] as? ProfileViewController)?.profileData = data
+            (vc.viewControllers?[1] as? PostViewController)?.postData = data
+            (vc.viewControllers?[2] as? AlbumCollectionViewController)?.albumData = data
         }
+        
+//        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let indexPath = self.tableview.indexPathForSelectedRow{
+//            if let identifier = segue.identifier, identifier == "profileSegue"{
+//                if let vc = segue.destination as? TabViewController{
+//                    if let data = self.userArray?.object(at: indexPath.row) as? NSObject{
+//                        (vc.viewControllers?[0] as? ProfileViewController)?.profileData = data
+//                        (vc.viewControllers?[1] as? PostViewController)?.postData = data
+//                        (vc.viewControllers?[2] as? AlbumCollectionViewController)?.albumData = data
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
